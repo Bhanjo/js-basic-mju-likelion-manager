@@ -1,0 +1,12 @@
+{
+  "name": "js-basic-mju-likelion-manager",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
