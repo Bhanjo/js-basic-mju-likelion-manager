@@ -1,0 +1,13 @@
+li {
+  display: flex;
+  gap: 0 14px;
+  align-items: center;
+}
+
+li > button {
+  height: 50%;
+}
+
+button {
+  cursor: pointer;
+}
