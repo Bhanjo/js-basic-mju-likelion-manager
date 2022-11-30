@@ -12,6 +12,22 @@ export const todoSubmitEvent = (
   });
 };
 
+export const renderTodoElement = (newTodo: Todo) => {
+  const todoContainerEl = document.querySelector('#todoContainer');
+  const newTodoItem = document.createElement('li');
+  const content = document.createElement('p');
+  const deleteBtn = document.createElement('button');
+
+  content.textContent = newTodo.content;
+  deleteBtn.textContent = '삭제';
+
+  newTodoItem.id = newTodo.id;
+  newTodoItem.append(content);
+  newTodoItem.append(deleteBtn);
+
+  todoContainerEl?.append(newTodoItem);
+};
+
 const appendTodo = (content: string) => {
   const newTodo = { id: crypto.randomUUID(), content: content };
 
@@ -22,19 +38,4 @@ const appendTodo = (content: string) => {
 
   appendTodoData(newTodo);
   renderTodoElement(newTodo);
-};
-
-const renderTodoElement = (newTodo: Todo) => {
-  const todoContainerEl = document.querySelector('#todoContainer');
-  const newTodoItem = document.createElement('li');
-  const content = document.createElement('p');
-  const deleteBtn = document.createElement('button');
-
-  content.textContent = newTodo.content;
-  deleteBtn.textContent = '삭제';
-
-  newTodoItem.append(content);
-  newTodoItem.append(deleteBtn);
-
-  todoContainerEl?.append(newTodoItem);
 };
