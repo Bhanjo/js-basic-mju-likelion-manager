@@ -7,11 +7,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const todoText: HTMLInputElement | null = document.querySelector('#todoText');
   const todos = getTodos();
 
-  if (todos) {
-    todos.map((todo) => renderTodoElement(todo));
-  }
-
   if (submitBtn && todoText) {
     todoSubmitEvent(submitBtn, todoText);
+  }
+
+  if (todos) {
+    todos.map((todo) => renderTodoElement(todo));
   }
 });
