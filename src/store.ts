@@ -16,6 +16,14 @@ export const getTodos = (): Todo[] => {
   return todos;
 };
 
+export const updateTodoData = (updateTodo: Todo) => {
+  todos.forEach((item) =>
+    item.id === updateTodo.id
+      ? (item.content = updateTodo.content)
+      : item.content
+  );
+};
+
 export const deleteTodoData = (targetID: string) => {
   todos = todos.filter((todo) => todo.id != targetID);
 };
