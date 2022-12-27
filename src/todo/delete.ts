@@ -1,4 +1,4 @@
-import { deleteTodoData } from '../store.js';
+import { deleteTodoData } from '../store';
 
 export const deleteTodo = (targetID: string) => {
   deleteTodoElement(targetID);

@@ -1,12 +1,7 @@
 import { Todo } from './types/Todo';
 
-// Todo 데이터의 모든 제어권을 오직 여기서만 가능하도록 함
-let todos: Todo[] = [
-  {
-    id: 'asd',
-    content: '할일1',
-  },
-];
+// Todo 데이터의 모든 제어권을 오직 Store에서만 가능하도록 함
+let todos: Todo[] = [];
 
 export const appendTodoData = (newTodo: Todo) => {
   todos.push(newTodo);

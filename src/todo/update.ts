@@ -1,4 +1,4 @@
-import { updateTodoData } from '../store.js';
+import { updateTodoData } from '../store';
 
 export const updateTodo = (
   targetID: string,
@@ -35,8 +35,8 @@ export const handleUpdateEvent = (
   };
 
   updateTodoData(updateTodo);
-  const contentEl = container.querySelector('#content');
 
+  const contentEl = container.querySelector('#content');
   if (!contentEl) {
     throw new Error('컨텐츠 엘리먼트를 찾을 수 없습니다.');
   }
