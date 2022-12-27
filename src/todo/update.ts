@@ -1,28 +1,12 @@
 import { updateTodoData } from '../store';
 
-export const updateTodo = (
-  targetID: string,
-  contentEl: HTMLParagraphElement | null
-) => {
-  if (!contentEl) {
-    throw new Error('todo content를 찾을 수 없습니다.');
-  }
-
+export const updateTodo = (targetID: string) => {
   const container = document.querySelector(`[id = "${targetID}"]`);
-  if (!container) {
-    throw new Error(`${targetID}에 맞는 컨테이너를 찾을 수 없습니다.`);
-  }
-
-  const contentText = container.querySelector('#content')?.textContent;
-  if (!contentText) {
-    throw new Error('todo 컨텐츠 텍스트를 찾을 수 없습니다.');
-  }
+  const contentText = container?.querySelector('#content')?.textContent;
+  const inputEl = container?.querySelector('#contentInput');
 
   hiddenChild(container as HTMLElement);
-  const inputEl = container.querySelector('#contentInput');
-  if (inputEl) {
-    (inputEl as HTMLInputElement).value = contentText;
-  }
+  (inputEl as HTMLInputElement).value = contentText || '';
 };
 
 export const handleUpdateEvent = (

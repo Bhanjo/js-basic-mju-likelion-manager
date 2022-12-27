@@ -73,9 +73,6 @@ const handleClickTodoItemEvent = (e: Event) => {
   }
 
   if (e.target instanceof HTMLParagraphElement && e.target.id === 'content') {
-    const contentEl = e.currentTarget.querySelector(
-      '#content'
-    ) as HTMLParagraphElement;
-    updateTodo(targetID, contentEl);
+    updateTodo(targetID);
   }
 };
