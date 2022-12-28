@@ -3,11 +3,11 @@ import { Todo } from './types/Todo';
 // Todo 데이터의 모든 제어권을 오직 Store에서만 가능하도록 함
 let todos: Todo[] = [];
 
-export const appendTodoData = (newTodo: Todo) => {
+export const createTodoData = (newTodo: Todo) => {
   todos.push(newTodo);
 };
 
-export const getTodos = (): Todo[] => {
+export const readTodoData = (): Todo[] => {
   return todos;
 };
 

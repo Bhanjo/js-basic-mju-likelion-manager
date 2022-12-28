@@ -1,8 +1,7 @@
+import { updateTodo, showUpdateForm } from './update';
 import { deleteTodo } from './delete';
-import { updateTodo } from './update';
-import { appendTodoData } from '../store';
+import { createTodoData } from '../store';
 import { Todo } from '../types/Todo';
-import { handleUpdateEvent } from './update';
 
 // DOM을 부모가 선택하도록 설계하여 DOM을 동적으로 바꿀 수 있게 만듦
 export const todoSubmitEvent = (
@@ -28,18 +27,15 @@ export const renderTodoElement = (newTodo: Todo) => {
   content.id = 'content';
   content.textContent = newTodo.content;
 
-  deleteBtn.textContent = '삭제';
   deleteBtn.id = 'deleteBtn';
+  deleteBtn.textContent = '삭제';
 
   inputEl.id = 'contentInput';
   inputEl.hidden = true;
 
-  updateBtn.hidden = true;
   updateBtn.id = 'updateBtn';
   updateBtn.textContent = '수정';
-  updateBtn.addEventListener('click', () => {
-    handleUpdateEvent(newTodoItem, inputEl.value);
-  });
+  updateBtn.hidden = true;
 
   newTodoItem.id = newTodo.id;
   newTodoItem.addEventListener('click', (e) => handleClickTodoItemEvent(e));
@@ -58,7 +54,7 @@ const appendTodo = (content: string) => {
   }
 
   const newTodo = { id: crypto.randomUUID(), content: content };
-  appendTodoData(newTodo);
+  createTodoData(newTodo);
   renderTodoElement(newTodo);
 };
 
@@ -73,6 +69,13 @@ const handleClickTodoItemEvent = (e: Event) => {
   }
 
   if (e.target instanceof HTMLParagraphElement && e.target.id === 'content') {
-    updateTodo(targetID);
+    showUpdateForm(targetID);
+  }
+
+  if (e.target instanceof HTMLButtonElement && e.target.id === 'updateBtn') {
+    const newText = (
+      e.currentTarget.querySelector('#contentInput') as HTMLInputElement
+    )?.value;
+    updateTodo(e.currentTarget as HTMLElement, newText);
   }
 };
