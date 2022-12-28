@@ -31,5 +31,33 @@
 
 ## 제출 방법
 
-현재 레포지트리의 Issues 탭에 자신의 레포지트리 링크를 업로드해주세요. 본인의 레포지트리는 반드시 public으로 해주세요
+현재 레포지트리의 Issues 탭에 자신의 레포지트리 링크를 업로드해주세요.
+
+본인의 레포지트리는 반드시 public으로 해주세요
+
 (예시는 Issues 탭 참고)
+
+## 샘플 실행 방법
+
+```
+yarn install (혹은 npm install)
+
+yarn build (혹은 npm build)
+
+index.html을 타깃으로 LiveServer 실행
+```
+
+## 샘플 코드 설명
+- [ ] TypeScript로 진행한 TodoList입니다.
+- [ ] Webpack을 적용했습니다.
+- [ ] Todo 데이터는 Store에서만 접근하도록 제한했습니다.
+- [ ] Todo DOM 처리, Store 데이터와 동기화는 `todo` 폴더 각 파일에서 처리합니다.
+```
+├── 📂 public
+│
+├── 📂 src
+│   ├── 📂 todo // Todo 컨트롤
+│   ├── 📝 store.ts // Todo Data 관리
+│   └── 📝 main.ts
+└── 🛠 webpack.config, tsconfig, ...
+```
