@@ -1,18 +1,17 @@
 import { updateTodoData } from '../store';
 
 export const showUpdateForm = (targetID: string) => {
-  const container = document.querySelector(`[id = "${targetID}"]`);
+  const container = document.querySelector(
+    `[id = "${targetID}"]`
+  ) as HTMLElement;
   const contentText = container?.querySelector('#content')?.textContent;
-  const inputEl = container?.querySelector('#contentInput');
-  (inputEl as HTMLInputElement).value = contentText || '';
-  hiddenChild(container as HTMLElement);
+  const inputEl = container?.querySelector('#contentInput') as HTMLInputElement;
+  inputEl.value = contentText || '';
+  hiddenChild(container);
 };
 
 // 한 줄 한 줄 읽을 때 코드 해석이 어느 것이 더 쉬운지 파악해보자
-export const updateTodo = (
-  container: HTMLElement,
-  updateText: string | null | undefined = ''
-) => {
+export const updateTodo = (container: HTMLElement, updateText: string) => {
   const updateTodo = {
     id: container.id,
     content: updateText ?? '',

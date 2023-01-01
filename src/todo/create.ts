@@ -58,7 +58,7 @@ const appendTodo = (content: string) => {
   renderTodoElement(newTodo);
 };
 
-// 이벤트 버블링으로 이벤트 분기
+// 이벤트 위임으로 이벤트 분기
 const handleClickTodoItemEvent = (e: Event) => {
   if (!(e.currentTarget instanceof Element)) return;
 
